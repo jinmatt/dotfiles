@@ -1,0 +1,19 @@
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# Neovim
+nvim/.netrwhist
+nvim/plugin/packer_compiled.lua
+
+# Backup files
+*.backup.*
+
+# Logs
+*.log
+
+# Temporary files
+*.swp
+*.swo
+*~
