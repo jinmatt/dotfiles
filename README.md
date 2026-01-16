@@ -8,12 +8,14 @@ My personal dotfiles managed with Git and manual symlinks.
   - Lazy.nvim plugin manager
   - Custom keymappings and options
   - Plugin configurations in `lua/configs/`
+- **aerospace.toml** - AeroSpace tiling window manager configuration
 
 ## Structure
 
 ```
 ~/dotfiles/
 ├── install.sh          # Installation script to set up symlinks
+├── aerospace.toml     # AeroSpace window manager config
 ├── nvim/              # Neovim configuration
 │   ├── init.lua       # Main config entry point
 │   ├── lua/           # Lua configuration modules
@@ -46,6 +48,7 @@ My personal dotfiles managed with Git and manual symlinks.
    The script will:
    - Backup any existing configs (e.g., `~/.config/nvim` → `~/.config/nvim.backup.TIMESTAMP`)
    - Create symlinks from `~/.config/nvim` to `~/dotfiles/nvim`
+   - Create symlink from `~/.aerospace.toml` to `~/dotfiles/aerospace.toml`
 
 3. Open Neovim and let Lazy.nvim install plugins:
    ```bash
@@ -60,8 +63,11 @@ If you prefer to create symlinks manually:
 # Backup existing config (if any)
 mv ~/.config/nvim ~/.config/nvim.backup.$(date +%Y%m%d_%H%M%S)
 
-# Create symlink
+# Create symlink for Neovim
 ln -s ~/dotfiles/nvim ~/.config/nvim
+
+# Create symlink for AeroSpace
+ln -s ~/dotfiles/aerospace.toml ~/.aerospace.toml
 ```
 
 ## How Symlinks Work

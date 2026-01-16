@@ -41,6 +41,14 @@ else
     echo "Warning: nvim directory not found in dotfiles"
 fi
 
+# Install aerospace config
+if [ -f "$DOTFILES_DIR/aerospace.toml" ]; then
+    backup_and_link "$DOTFILES_DIR/aerospace.toml" "$HOME/.aerospace.toml"
+    echo "✓ AeroSpace config installed"
+else
+    echo "Warning: aerospace.toml not found in dotfiles"
+fi
+
 echo ""
 echo "Installation complete!"
 echo "Your dotfiles have been symlinked to their appropriate locations."
