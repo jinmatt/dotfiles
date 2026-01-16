@@ -9,6 +9,9 @@ My personal dotfiles managed with Git and manual symlinks.
   - Custom keymappings and options
   - Plugin configurations in `lua/configs/`
 - **aerospace.toml** - AeroSpace tiling window manager configuration
+- **ghostty/** - Ghostty terminal emulator configuration
+  - Custom font and theme settings
+  - Window padding configuration
 
 ## Structure
 
@@ -16,6 +19,8 @@ My personal dotfiles managed with Git and manual symlinks.
 ~/dotfiles/
 ├── install.sh          # Installation script to set up symlinks
 ├── aerospace.toml     # AeroSpace window manager config
+├── ghostty/           # Ghostty terminal configuration
+│   └── config         # Main Ghostty config file
 ├── nvim/              # Neovim configuration
 │   ├── init.lua       # Main config entry point
 │   ├── lua/           # Lua configuration modules
@@ -49,6 +54,7 @@ My personal dotfiles managed with Git and manual symlinks.
    - Backup any existing configs (e.g., `~/.config/nvim` → `~/.config/nvim.backup.TIMESTAMP`)
    - Create symlinks from `~/.config/nvim` to `~/dotfiles/nvim`
    - Create symlink from `~/.aerospace.toml` to `~/dotfiles/aerospace.toml`
+   - Create symlink from `~/Library/Application Support/com.mitchellh.ghostty/config` to `~/dotfiles/ghostty/config`
 
 3. Open Neovim and let Lazy.nvim install plugins:
    ```bash
@@ -68,6 +74,10 @@ ln -s ~/dotfiles/nvim ~/.config/nvim
 
 # Create symlink for AeroSpace
 ln -s ~/dotfiles/aerospace.toml ~/.aerospace.toml
+
+# Create symlink for Ghostty
+mkdir -p ~/Library/Application\ Support/com.mitchellh.ghostty
+ln -s ~/dotfiles/ghostty/config ~/Library/Application\ Support/com.mitchellh.ghostty/config
 ```
 
 ## How Symlinks Work

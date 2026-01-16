@@ -49,6 +49,15 @@ else
     echo "Warning: aerospace.toml not found in dotfiles"
 fi
 
+# Install ghostty config
+if [ -f "$DOTFILES_DIR/ghostty/config" ]; then
+    mkdir -p "$HOME/Library/Application Support/com.mitchellh.ghostty"
+    backup_and_link "$DOTFILES_DIR/ghostty/config" "$HOME/Library/Application Support/com.mitchellh.ghostty/config"
+    echo "✓ Ghostty config installed"
+else
+    echo "Warning: ghostty/config not found in dotfiles"
+fi
+
 echo ""
 echo "Installation complete!"
 echo "Your dotfiles have been symlinked to their appropriate locations."
