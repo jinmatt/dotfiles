@@ -58,6 +58,15 @@ else
     echo "Warning: ghostty/config not found in dotfiles"
 fi
 
+# Install tmux config
+if [ -f "$DOTFILES_DIR/tmux/tmux.conf" ]; then
+    mkdir -p "$CONFIG_DIR/tmux"
+    backup_and_link "$DOTFILES_DIR/tmux/tmux.conf" "$CONFIG_DIR/tmux/tmux.conf"
+    echo "✓ tmux config installed"
+else
+    echo "Warning: tmux/tmux.conf not found in dotfiles"
+fi
+
 echo ""
 echo "Installation complete!"
 echo "Your dotfiles have been symlinked to their appropriate locations."

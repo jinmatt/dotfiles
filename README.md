@@ -12,6 +12,10 @@ My personal dotfiles managed with Git and manual symlinks.
 - **ghostty/** - Ghostty terminal emulator configuration
   - Custom font and theme settings
   - Window padding configuration
+- **tmux/** - tmux terminal multiplexer configuration
+  - Custom keybindings (C-s prefix, vim navigation)
+  - Catppuccin theme with custom status bar
+  - TPM plugin manager support
 
 ## Structure
 
@@ -32,6 +36,8 @@ My personal dotfiles managed with Git and manual symlinks.
 │   │   └── plugins/   # Plugin specifications
 │   ├── lazy-lock.json # Locked plugin versions
 │   └── .stylua.toml   # Lua formatter config
+├── tmux/              # tmux terminal multiplexer config
+│   └── tmux.conf      # Main tmux config file
 └── README.md          # This file
 ```
 
@@ -57,9 +63,15 @@ My personal dotfiles managed with Git and manual symlinks.
    - Create symlink from `~/Library/Application Support/com.mitchellh.ghostty/config` to `~/dotfiles/ghostty/config`
 
 3. Open Neovim and let Lazy.nvim install plugins:
-   ```bash
-   nvim
-   ```
+    ```bash
+    nvim
+    ```
+
+4. Install tmux Plugin Manager (TPM) for tmux plugins:
+    ```bash
+    git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+    ```
+    Then in tmux, press `prefix + I` (capital I) to install plugins.
 
 ### Manual Symlink Creation
 
@@ -78,6 +90,10 @@ ln -s ~/dotfiles/aerospace.toml ~/.aerospace.toml
 # Create symlink for Ghostty
 mkdir -p ~/Library/Application\ Support/com.mitchellh.ghostty
 ln -s ~/dotfiles/ghostty/config ~/Library/Application\ Support/com.mitchellh.ghostty/config
+
+# Create symlink for tmux
+mkdir -p ~/.config/tmux
+ln -s ~/dotfiles/tmux/tmux.conf ~/.config/tmux/tmux.conf
 ```
 
 ## How Symlinks Work
@@ -144,6 +160,39 @@ The `lazy-lock.json` file is included in version control to ensure consistent pl
 git add lazy-lock.json
 git commit -m "Update plugin versions"
 ```
+
+## tmux Configuration Details
+
+### Keybindings
+
+- **Prefix**: `C-s` (Control+s) instead of default `C-b`
+- **Reload config**: `prefix + r`
+- **Pane navigation** (vim-style):
+  - `prefix + h` - left
+  - `prefix + j` - down
+  - `prefix + k` - up
+  - `prefix + l` - right
+- **Mouse support**: enabled
+- **New windows/panes** open in current directory
+
+### Plugin Manager
+
+Uses [TPM](https://github.com/tmux-plugins/tpm) (Tmux Plugin Manager).
+
+**Install TPM:**
+```bash
+git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+```
+
+**Install plugins:**
+In tmux, press `prefix + I` (capital I) to install configured plugins.
+
+**Update plugins:**
+Press `prefix + U` to update plugins.
+
+### Theme
+
+Uses [Catppuccin](https://github.com/catppuccin/tmux) theme with custom status bar configuration.
 
 ## Maintenance
 
