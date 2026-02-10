@@ -35,6 +35,22 @@ return {
     },
   },
 
+  -- Nvim-tree with fixed width (prevent auto-resizing)
+  {
+    "nvim-tree/nvim-tree.lua",
+    opts = {
+      view = {
+        width = 30,
+        adaptive_size = false,
+      },
+      actions = {
+        open_file = {
+          resize_window = false,
+        },
+      },
+    },
+  },
+
   -- test new blink
   -- { import = "nvchad.blink.lazyspec" },
 
