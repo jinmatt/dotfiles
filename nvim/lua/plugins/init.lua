@@ -26,6 +26,15 @@ return {
     end,
   },
 
+  -- Auto-save and restore sessions
+  {
+    "rmagatti/auto-session",
+    lazy = false,
+    opts = {
+      suppressed_dirs = { "~/", "~/Downloads", "/", "/tmp" },
+    },
+  },
+
   -- test new blink
   -- { import = "nvchad.blink.lazyspec" },
 
