@@ -15,6 +15,17 @@ return {
     end,
   },
 
+  -- Telescope with filename_first for better visibility
+  {
+    "nvim-telescope/telescope.nvim",
+    opts = function(_, conf)
+      conf.defaults = vim.tbl_deep_extend("force", conf.defaults or {}, {
+        path_display = { "filename_first" },
+      })
+      return conf
+    end,
+  },
+
   -- test new blink
   -- { import = "nvchad.blink.lazyspec" },
 
