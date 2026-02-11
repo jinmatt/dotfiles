@@ -21,6 +21,9 @@ return {
     opts = function(_, conf)
       conf.defaults = vim.tbl_deep_extend("force", conf.defaults or {}, {
         path_display = { "filename_first" },
+        cache_picker = {
+          num_pickers = 10,
+        },
       })
       return conf
     end,

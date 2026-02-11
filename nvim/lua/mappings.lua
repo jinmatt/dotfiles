@@ -7,6 +7,9 @@ local map = vim.keymap.set
 map("n", ";", ":", { desc = "CMD enter command mode" })
 map("i", "jk", "<ESC>")
 
+-- Telescope resume last search
+map("n", "<leader>fr", "<CMD>Telescope resume<CR>", { desc = "Resume last search" })
+
 -- oil.nvim
 map("n", "-", "<CMD>Oil<CR>", { desc = "Open parent directory" })
 
