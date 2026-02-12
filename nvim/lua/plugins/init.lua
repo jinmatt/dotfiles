@@ -43,8 +43,8 @@ return {
     "nvim-tree/nvim-tree.lua",
     opts = {
       view = {
-        width = 30,
-        adaptive_size = false,
+        width = 50,
+        adaptive_size = true,
       },
       actions = {
         open_file = {
