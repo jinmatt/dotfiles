@@ -90,6 +90,11 @@ return {
             port = 9229,
             cwd = "${workspaceFolder}",
             sourceMaps = true,
+            outFiles = { "${workspaceFolder}/dist/**/*.js" },
+            resolveSourceMapLocations = {
+              "${workspaceFolder}/**",
+              "!**/node_modules/**",
+            },
             skipFiles = { "<node_internals>/**" },
           },
           -- Attach with process picker
@@ -100,6 +105,11 @@ return {
             processId = require("dap.utils").pick_process,
             cwd = "${workspaceFolder}",
             sourceMaps = true,
+            outFiles = { "${workspaceFolder}/dist/**/*.js" },
+            resolveSourceMapLocations = {
+              "${workspaceFolder}/**",
+              "!**/node_modules/**",
+            },
             skipFiles = { "<node_internals>/**" },
           },
           -- Launch current file
@@ -110,6 +120,11 @@ return {
             program = "${file}",
             cwd = "${workspaceFolder}",
             sourceMaps = true,
+            outFiles = { "${workspaceFolder}/dist/**/*.js" },
+            resolveSourceMapLocations = {
+              "${workspaceFolder}/**",
+              "!**/node_modules/**",
+            },
             skipFiles = { "<node_internals>/**" },
           },
         }
@@ -129,14 +144,25 @@ return {
         dapui.close()
       end
 
+      -- Highlight groups for DAP signs
+      vim.api.nvim_set_hl(0, "DapBreakpoint", { fg = "#e51400" })
+      vim.api.nvim_set_hl(0, "DapBreakpointCondition", { fg = "#f9a825" })
+      vim.api.nvim_set_hl(0, "DapLogPoint", { fg = "#61afef" })
+      vim.api.nvim_set_hl(0, "DapStopped", { fg = "#98c379" })
+      vim.api.nvim_set_hl(0, "DapStoppedLine", { bg = "#2e4d3d" })
+
       -- Breakpoint signs
       vim.fn.sign_define("DapBreakpoint", { text = "●", texthl = "DapBreakpoint", linehl = "", numhl = "" })
       vim.fn.sign_define(
         "DapBreakpointCondition",
         { text = "◆", texthl = "DapBreakpointCondition", linehl = "", numhl = "" }
       )
+      vim.fn.sign_define(
+        "DapBreakpointRejected",
+        { text = "●", texthl = "DapBreakpoint", linehl = "", numhl = "" }
+      )
       vim.fn.sign_define("DapLogPoint", { text = "◎", texthl = "DapLogPoint", linehl = "", numhl = "" })
-      vim.fn.sign_define("DapStopped", { text = "→", texthl = "DapStopped", linehl = "DapStopped", numhl = "" })
+      vim.fn.sign_define("DapStopped", { text = "→", texthl = "DapStopped", linehl = "DapStoppedLine", numhl = "" })
 
       -- User command to reinstall/update the debug adapter
       vim.api.nvim_create_user_command("DapJsDebugInstall", function()
