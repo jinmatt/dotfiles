@@ -18,6 +18,17 @@ map("n", "<leader>fD", function()
   end
 end, { desc = "Live grep in directory" })
 
+-- Telescope live grep filtered by file extension
+map("n", "<leader>fE", function()
+  local ext = vim.fn.input("File extension: ")
+  if ext ~= "" then
+    require("telescope.builtin").live_grep({ glob_pattern = "*." .. ext })
+  end
+end, { desc = "Live grep by file extension" })
+
+-- Telescope search all keymaps
+map("n", "<leader>fk", "<CMD>Telescope keymaps<CR>", { desc = "Search keymaps" })
+
 -- oil.nvim
 map("n", "-", "<CMD>Oil<CR>", { desc = "Open parent directory" })
 
