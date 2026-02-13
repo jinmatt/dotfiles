@@ -22,6 +22,8 @@ M.ui = {
 	},
 
 	statusline = {
+		theme = "default",
+		separator_style = "round",
 		modules = {
 			file = function()
 				local stbufnr = function()
