@@ -35,6 +35,9 @@ return {
     lazy = false,
     opts = {
       suppressed_dirs = { "~/", "~/Downloads", "/", "/tmp" },
+      -- Don't auto-restore on startup so nvdash can show;
+      -- use <leader>Sr to restore manually
+      auto_restore = false,
     },
   },
 
