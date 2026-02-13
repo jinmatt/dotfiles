@@ -10,6 +10,14 @@ map("i", "jk", "<ESC>")
 -- Telescope resume last search
 map("n", "<leader>fr", "<CMD>Telescope resume<CR>", { desc = "Resume last search" })
 
+-- Telescope live grep in a specific directory
+map("n", "<leader>fD", function()
+  local dir = vim.fn.input("Directory: ", "", "dir")
+  if dir ~= "" then
+    require("telescope.builtin").live_grep({ search_dirs = { dir } })
+  end
+end, { desc = "Live grep in directory" })
+
 -- oil.nvim
 map("n", "-", "<CMD>Oil<CR>", { desc = "Open parent directory" })
 
