@@ -51,7 +51,7 @@
 
 title="Ghostty"
 theme="Catppuccin Mocha"
-font-family="GeistMono Nerd Font"
+font-family="FiraCode Nerd Font"
 window-padding-x="10"
 window-padding-balance="true"
 window-padding-color="extend"
