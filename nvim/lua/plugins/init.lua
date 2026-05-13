@@ -57,6 +57,14 @@ return {
     },
   },
 
+  -- Gitsigns inline blame
+  {
+    "lewis6991/gitsigns.nvim",
+    opts = {
+      current_line_blame = true,
+    },
+  },
+
   -- test new blink
   -- { import = "nvchad.blink.lazyspec" },
 

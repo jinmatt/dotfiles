@@ -36,6 +36,13 @@ map("n", "-", "<CMD>Oil<CR>", { desc = "Open parent directory" })
 map("n", "<leader>n+", "<CMD>NvimTreeResize +5<CR>", { desc = "NvimTree increase width" })
 map("n", "<leader>n-", "<CMD>NvimTreeResize -5<CR>", { desc = "NvimTree decrease width" })
 
+-- Copy current file location
+map("n", "<leader>cp", function()
+  local location = vim.fn.expand "%:." .. ":" .. vim.fn.line "."
+  vim.fn.setreg("+", location)
+  vim.notify("Copied " .. location)
+end, { desc = "Copy relative path with line" })
+
 -- LSP code actions
 map("n", "<leader>ca", vim.lsp.buf.code_action, { desc = "LSP code action" })
 map("v", "<leader>ca", vim.lsp.buf.code_action, { desc = "LSP code action" })
