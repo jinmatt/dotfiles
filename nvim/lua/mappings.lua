@@ -32,6 +32,10 @@ map("n", "<leader>fk", "<CMD>Telescope keymaps<CR>", { desc = "Search keymaps" }
 -- oil.nvim
 map("n", "-", "<CMD>Oil<CR>", { desc = "Open parent directory" })
 
+-- NvimTree resize keybindings
+map("n", "<leader>n+", "<CMD>NvimTreeResize +5<CR>", { desc = "NvimTree increase width" })
+map("n", "<leader>n-", "<CMD>NvimTreeResize -5<CR>", { desc = "NvimTree decrease width" })
+
 -- LSP code actions
 map("n", "<leader>ca", vim.lsp.buf.code_action, { desc = "LSP code action" })
 map("v", "<leader>ca", vim.lsp.buf.code_action, { desc = "LSP code action" })
