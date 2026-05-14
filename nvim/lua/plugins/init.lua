@@ -49,6 +49,10 @@ return {
         width = 40,
         adaptive_size = false, -- Disable adaptive sizing for manual control
       },
+      renderer = {
+        indent_width = 1,
+        group_empty = true,
+      },
       actions = {
         open_file = {
           resize_window = false,
