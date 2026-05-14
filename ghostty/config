@@ -51,7 +51,8 @@
 
 title="Ghostty"
 theme="Catppuccin Mocha"
-font-family="Lilex"
+# font-family="Lilex"
+font-family="JetBrainsMonoNL Nerd Font Mono"
 window-padding-x="10"
 window-padding-balance="true"
 window-padding-color="extend"
@@ -64,7 +65,7 @@ clipboard-paste-protection="true"
 macos-titlebar-style="tabs"
 macos-titlebar-proxy-icon="hidden"
 macos-window-shadow="false"
-font-size="16"
+font-size="15"
 font-thicken
 font-thicken-strength="50"
 mouse-hide-while-typing="true"
