@@ -41,6 +41,16 @@ else
     echo "Warning: nvim directory not found in dotfiles"
 fi
 
+# Install Zed config
+if [ -f "$DOTFILES_DIR/zed/settings.json" ] && [ -f "$DOTFILES_DIR/zed/keymap.json" ]; then
+    mkdir -p "$CONFIG_DIR/zed"
+    backup_and_link "$DOTFILES_DIR/zed/settings.json" "$CONFIG_DIR/zed/settings.json"
+    backup_and_link "$DOTFILES_DIR/zed/keymap.json" "$CONFIG_DIR/zed/keymap.json"
+    echo "✓ Zed config installed"
+else
+    echo "Warning: zed settings or keymap not found in dotfiles"
+fi
+
 # Install aerospace config
 if [ -f "$DOTFILES_DIR/aerospace.toml" ]; then
     backup_and_link "$DOTFILES_DIR/aerospace.toml" "$HOME/.aerospace.toml"
