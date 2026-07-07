@@ -24,7 +24,6 @@
       "ctrl-w a": "agent::ToggleFocus",
       "space f": "file_finder::Toggle",
       "space e": "project_panel::ToggleFocus",
-      "space /": "project_search::ToggleFocus",
       "space b": "tab_switcher::Toggle",
       "space g": "git_panel::ToggleFocus",
       "space d": "diagnostics::Deploy",
