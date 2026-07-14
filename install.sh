@@ -77,6 +77,25 @@ else
     echo "Warning: tmux/tmux.conf not found in dotfiles"
 fi
 
+# Install SSH config
+if [ -f "$DOTFILES_DIR/ssh/config" ]; then
+    mkdir -p "$HOME/.ssh"
+    chmod 700 "$HOME/.ssh"
+    backup_and_link "$DOTFILES_DIR/ssh/config" "$HOME/.ssh/config"
+    echo "✓ SSH config installed"
+else
+    echo "Warning: ssh/config not found in dotfiles"
+fi
+
+# Install 1Password SSH agent config
+if [ -f "$DOTFILES_DIR/1Password/ssh/agent.toml" ]; then
+    mkdir -p "$CONFIG_DIR/1Password/ssh"
+    backup_and_link "$DOTFILES_DIR/1Password/ssh/agent.toml" "$CONFIG_DIR/1Password/ssh/agent.toml"
+    echo "✓ 1Password SSH agent config installed"
+else
+    echo "Warning: 1Password/ssh/agent.toml not found in dotfiles"
+fi
+
 echo ""
 echo "Installation complete!"
 echo "Your dotfiles have been symlinked to their appropriate locations."

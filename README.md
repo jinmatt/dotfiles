@@ -16,6 +16,11 @@ My personal dotfiles managed with Git and manual symlinks.
   - Custom keybindings (C-s prefix, vim navigation)
   - Catppuccin theme with custom status bar
   - TPM plugin manager support
+- **ssh/** - SSH client configuration
+  - Tailscale alias for the Hostinger VPS
+  - 1Password SSH agent integration
+- **1Password/** - 1Password SSH agent configuration
+  - Enables Hostinger and Overflow SSH keys
 
 ## Structure
 
@@ -38,6 +43,10 @@ My personal dotfiles managed with Git and manual symlinks.
 │   └── .stylua.toml   # Lua formatter config
 ├── tmux/              # tmux terminal multiplexer config
 │   └── tmux.conf      # Main tmux config file
+├── ssh/               # SSH client configuration
+│   └── config         # Main SSH config file
+├── 1Password/         # 1Password configuration
+│   └── ssh/agent.toml # 1Password SSH agent config
 └── README.md          # This file
 ```
 
@@ -60,7 +69,9 @@ My personal dotfiles managed with Git and manual symlinks.
    - Backup any existing configs (e.g., `~/.config/nvim` → `~/.config/nvim.backup.TIMESTAMP`)
    - Create symlinks from `~/.config/nvim` to `~/dotfiles/nvim`
    - Create symlink from `~/.aerospace.toml` to `~/dotfiles/aerospace.toml`
-   - Create symlink from `~/Library/Application Support/com.mitchellh.ghostty/config` to `~/dotfiles/ghostty/config`
+    - Create symlink from `~/Library/Application Support/com.mitchellh.ghostty/config` to `~/dotfiles/ghostty/config`
+    - Create symlink from `~/.ssh/config` to `~/dotfiles/ssh/config`
+    - Create symlink from `~/.config/1Password/ssh/agent.toml` to `~/dotfiles/1Password/ssh/agent.toml`
 
 3. Open Neovim and let Lazy.nvim install plugins:
     ```bash
@@ -94,6 +105,15 @@ ln -s ~/dotfiles/ghostty/config ~/Library/Application\ Support/com.mitchellh.gho
 # Create symlink for tmux
 mkdir -p ~/.config/tmux
 ln -s ~/dotfiles/tmux/tmux.conf ~/.config/tmux/tmux.conf
+
+# Create symlink for SSH
+mkdir -p ~/.ssh
+chmod 700 ~/.ssh
+ln -s ~/dotfiles/ssh/config ~/.ssh/config
+
+# Create symlink for 1Password SSH agent
+mkdir -p ~/.config/1Password/ssh
+ln -s ~/dotfiles/1Password/ssh/agent.toml ~/.config/1Password/ssh/agent.toml
 ```
 
 ## How Symlinks Work

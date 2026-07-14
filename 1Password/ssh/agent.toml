@@ -1,0 +1,13 @@
+# 1Password SSH agent config.
+# Controls which keys the local 1Password agent offers to SSH.
+
+[[ssh-keys]]
+vault = "Private"
+item = "Hostinger SSH Key"
+
+[[ssh-keys]]
+vault = "Private"
+item = "SSH Key - Overflow Mac Pro"
+
+[[ssh-keys]]
+vault = "Employee"
