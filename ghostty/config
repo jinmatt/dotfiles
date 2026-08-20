@@ -52,7 +52,7 @@
 title="Ghostty"
 theme="Catppuccin Mocha"
 # font-family="Lilex"
-font-family="JetBrainsMonoNL Nerd Font Mono"
+font-family="JetBrains Mono NL"
 window-padding-x="10"
 window-padding-balance="true"
 window-padding-color="extend"

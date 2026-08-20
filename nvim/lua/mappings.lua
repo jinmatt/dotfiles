@@ -32,6 +32,9 @@ map("n", "<leader>fk", "<CMD>Telescope keymaps<CR>", { desc = "Search keymaps" }
 -- oil.nvim
 map("n", "-", "<CMD>Oil<CR>", { desc = "Open parent directory" })
 
+-- Close all buffers and return to the dashboard
+map("n", "<leader>ba", "<CMD>%bd | Nvdash<CR>", { desc = "Close all buffers" })
+
 -- NvimTree resize keybindings
 map("n", "<leader>n+", "<CMD>NvimTreeResize +5<CR>", { desc = "NvimTree increase width" })
 map("n", "<leader>n-", "<CMD>NvimTreeResize -5<CR>", { desc = "NvimTree decrease width" })
