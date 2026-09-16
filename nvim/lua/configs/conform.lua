@@ -7,7 +7,7 @@ end
 
 local function js_formatters(bufnr)
   if root_has(bufnr, { "biome.json", "biome.jsonc" }) then
-    return { "biome", stop_after_first = true }
+    return { "biome-organize-imports", "biome" }
   end
 
   if root_has(bufnr, {
