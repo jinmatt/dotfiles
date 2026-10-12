@@ -36,11 +36,28 @@ local function js_formatters(bufnr)
     ".eslintrc.cjs",
     ".eslintrc.json",
   }) then
-    return { "eslint_d", "biome", stop_after_first = true }
+    return { "eslint_d" }
   end
 
-  return { "biome", stop_after_first = true }
+  return {}
 end
+
+local function json_formatters(bufnr)
+  if root_has(bufnr, { "biome.json", "biome.jsonc" }) then
+    return { "biome" }
+  end
+
+  return {}
+end
+
+local project_formatting_only = {
+  javascript = true,
+  typescript = true,
+  javascriptreact = true,
+  typescriptreact = true,
+  json = true,
+  jsonc = true,
+}
 
 local options = {
   formatters_by_ft = {
@@ -49,17 +66,19 @@ local options = {
     typescript = js_formatters,
     javascriptreact = js_formatters,
     typescriptreact = js_formatters,
-    json = { "biome" },
-    jsonc = { "biome" },
+    json = json_formatters,
+    jsonc = json_formatters,
     -- css = { "prettier" },
     -- html = { "prettier" },
   },
 
-  format_on_save = {
-    -- These options will be passed to conform.format()
-    timeout_ms = 500,
-    lsp_format = "fallback",
-  },
+  format_on_save = function(bufnr)
+    return {
+      timeout_ms = 500,
+      -- Web files should only use a project-selected formatter on save.
+      lsp_format = project_formatting_only[vim.bo[bufnr].filetype] and "never" or "fallback",
+    }
+  end,
 }
 
 return options
