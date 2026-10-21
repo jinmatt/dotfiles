@@ -248,5 +248,9 @@ persistent-workspaces = [
     run = ['layout floating']
 
 [[on-window-detected]]
+    if.app-id = 'com.granola.app'
+    run = ['layout floating']
+
+[[on-window-detected]]
     if.app-id = 'com.mitchellh.ghostty'
     run = ['layout tiling']
