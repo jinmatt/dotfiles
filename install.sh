@@ -77,6 +77,15 @@ else
     echo "Warning: tmux/tmux.conf not found in dotfiles"
 fi
 
+# Install mise config
+if [ -f "$DOTFILES_DIR/mise/config.toml" ]; then
+    mkdir -p "$CONFIG_DIR/mise"
+    backup_and_link "$DOTFILES_DIR/mise/config.toml" "$CONFIG_DIR/mise/config.toml"
+    echo "✓ mise config installed"
+else
+    echo "Warning: mise/config.toml not found in dotfiles"
+fi
+
 # Install SSH config
 if [ -f "$DOTFILES_DIR/ssh/config" ]; then
     mkdir -p "$HOME/.ssh"

@@ -1,0 +1,8 @@
+[tools]
+node = "24"
+"npm:vercel" = "latest"
+python = "latest"
+uv = "latest"
+
+[settings]
+idiomatic_version_file_enable_tools = ["node", "yarn"]
