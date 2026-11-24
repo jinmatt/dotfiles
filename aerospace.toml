@@ -256,5 +256,9 @@ persistent-workspaces = [
     run = ['layout floating']
 
 [[on-window-detected]]
+    if.app-id = 'com.apple.dt.Devices'
+    run = ['layout floating']
+
+[[on-window-detected]]
     if.app-id = 'com.mitchellh.ghostty'
     run = ['layout tiling']
